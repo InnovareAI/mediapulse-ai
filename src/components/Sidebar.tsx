@@ -11,7 +11,10 @@ import {
   Shield,
   MessageSquare,
   Sparkles,
+  Sun,
+  Moon,
 } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const navItems = [
   { path: '/', icon: LayoutDashboard, label: 'Overview' },
@@ -27,17 +30,32 @@ const navItems = [
 ];
 
 export default function Sidebar() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-slate-900 border-r border-slate-800 flex flex-col">
-      <div className="p-6 border-b border-slate-800">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-violet-500 to-purple-600 rounded-lg flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-white" />
+    <aside className="fixed left-0 top-0 h-screen w-64 bg-slate-900 dark:bg-slate-900 light:bg-white border-r border-slate-800 dark:border-slate-800 light:border-slate-200 flex flex-col">
+      <div className="p-6 border-b border-slate-800 dark:border-slate-800 light:border-slate-200">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-violet-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h1 className="text-lg font-bold text-white dark:text-white light:text-slate-900">MediaPulse AI</h1>
+              <p className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500">Intelligent Media Analytics</p>
+            </div>
           </div>
-          <div>
-            <h1 className="text-lg font-bold text-white">MediaPulse AI</h1>
-            <p className="text-xs text-slate-400">Intelligent Media Analytics</p>
-          </div>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg bg-slate-800 dark:bg-slate-800 light:bg-slate-100 hover:bg-slate-700 dark:hover:bg-slate-700 light:hover:bg-slate-200 transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <Sun className="w-4 h-4 text-yellow-400" />
+            ) : (
+              <Moon className="w-4 h-4 text-slate-600" />
+            )}
+          </button>
         </div>
       </div>
 
@@ -50,7 +68,7 @@ export default function Sidebar() {
               `flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                 isActive
                   ? 'bg-violet-600 text-white'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  : 'text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-white dark:hover:text-white light:hover:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-800 light:hover:bg-slate-100'
               }`
             }
           >
@@ -60,9 +78,9 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      <div className="p-4 border-t border-slate-800">
+      <div className="p-4 border-t border-slate-800 dark:border-slate-800 light:border-slate-200">
         <div className="bg-gradient-to-r from-violet-600/20 to-purple-600/20 rounded-lg p-4 border border-violet-500/30">
-          <p className="text-sm text-slate-300 mb-2">Get instant insights and recommendations</p>
+          <p className="text-sm text-slate-300 dark:text-slate-300 light:text-slate-600 mb-2">Get instant insights and recommendations</p>
           <button className="w-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
             <MessageSquare className="w-4 h-4" />
             Ask AI

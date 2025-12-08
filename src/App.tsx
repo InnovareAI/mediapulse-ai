@@ -13,7 +13,7 @@ import Assistant from './pages/Assistant';
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-slate-900">
+      <div className="min-h-screen bg-slate-900 dark:bg-slate-900 light:bg-slate-50 transition-colors">
         <Sidebar />
         <main className="ml-64 p-6">
           <Routes>
