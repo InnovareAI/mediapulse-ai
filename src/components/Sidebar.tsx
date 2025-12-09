@@ -13,12 +13,14 @@ import {
   Sparkles,
   Sun,
   Moon,
+  Mail,
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const navItems = [
   { path: '/', icon: LayoutDashboard, label: 'Overview' },
   { path: '/channels', icon: BarChart3, label: 'Channel Performance' },
+  { path: '/email', icon: Mail, label: 'Email Analytics' },
   { path: '/budget', icon: Wallet, label: 'Budget & Pacing' },
   { path: '/attribution', icon: GitBranch, label: 'Attribution' },
   { path: '/ai-analytics', icon: Brain, label: 'AI Analytics' },

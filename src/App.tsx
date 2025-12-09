@@ -9,6 +9,7 @@ import Alerts from './pages/Alerts';
 import Integrations from './pages/Integrations';
 import Governance from './pages/Governance';
 import Assistant from './pages/Assistant';
+import Email from './pages/Email';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Overview />} />
             <Route path="/channels" element={<Overview />} />
+            <Route path="/email" element={<Email />} />
             <Route path="/budget" element={<Budget />} />
             <Route path="/attribution" element={<Attribution />} />
             <Route path="/ai-analytics" element={<AIAnalytics />} />
